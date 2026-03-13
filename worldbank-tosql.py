@@ -28,5 +28,3 @@ CREATE TABLE worldbank (
     for country, code, val in rows:
         if (val != ""):
             f.write(f"INSERT INTO worldbank VALUES ('{country}', '{code}', '{val}');\n")
-        else:
-            f.write(f"INSERT INTO worldbank VALUES ('{country}', '{code}', NULL);\n")
