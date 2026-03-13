@@ -1,3 +1,5 @@
+SET DEFINE OFF;
+
 DROP TABLE IF EXISTS countries_relation;
 PURGE RECYCLEBIN;
 CREATE TABLE countries_relation (
