@@ -6,7 +6,7 @@ csv = "out/netflix_prices.csv"
 countries_csv = "out/countries_relation.csv"
 
 rows = []
-countries = []
+countries = set()
 
 # load json files into rows arrays
 for file in sorted(data.glob("*.json")):
@@ -15,7 +15,7 @@ for file in sorted(data.glob("*.json")):
         with open(file) as f:
             data = json.load(f)
         for country in data:
-            countries.append(country["country"])
+            countries.add(country["country"])
             country_name = country["country"]
             country_code = country["country_code"]
 

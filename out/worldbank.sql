@@ -3,8 +3,8 @@ PURGE RECYCLEBIN;
 CREATE TABLE worldbank (
     country VARCHAR(100),
     series_code VARCHAR(100),
-    latest_value FLOAT NOT NULL,
-    PRIMARY KEY (country, series_code)
+    latest_value FLOAT,
+    PRIMARY KEY (country, series_code),
     FOREIGN KEY (country) REFERENCES countries_relation ON DELETE CASCADE
 );
 INSERT INTO worldbank VALUES ('Afghanistan', 'NY.GDP.MKTP.CD', NULL);
