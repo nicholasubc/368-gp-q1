@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS netflix_traffic;
+DROP TABLE netflix_traffic;
 PURGE RECYCLEBIN;
 CREATE TABLE netflix_traffic (
     month DATE NOT NULL,

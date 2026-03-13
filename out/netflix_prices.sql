@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS netflix_prices;
+DROP TABLE netflix_prices;
 PURGE RECYCLEBIN;
 CREATE TABLE netflix_prices (
     date DATE,

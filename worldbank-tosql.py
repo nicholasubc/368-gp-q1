@@ -14,7 +14,7 @@ with open(data, mode="r", encoding="utf-8") as f:
 
 with open(sql, "w") as f:
     # discard old data and create table
-    f.write("""DROP TABLE IF EXISTS worldbank;
+    f.write("""DROP TABLE worldbank;
 PURGE RECYCLEBIN;
 CREATE TABLE worldbank (
     country VARCHAR(100),

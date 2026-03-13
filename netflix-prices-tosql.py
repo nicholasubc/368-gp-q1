@@ -29,7 +29,7 @@ for file in sorted(data.glob("*.json")):
 
 with open(sql, "w") as f:
     # discard old data and create table
-    f.write("""DROP TABLE IF EXISTS netflix_prices;
+    f.write("""DROP TABLE netflix_prices;
 PURGE RECYCLEBIN;
 CREATE TABLE netflix_prices (
     date DATE,
@@ -47,7 +47,8 @@ CREATE TABLE netflix_prices (
 
 with open(countries_sql, "w") as f:
     # discard old data and create table
-    f.write("""DROP TABLE IF EXISTS countries_relation;
+    f.write("""SET DEFINE OFF;
+DROP TABLE countries_relation;
 PURGE RECYCLEBIN;
 CREATE TABLE countries_relation (
     country VARCHAR(100) PRIMARY KEY
@@ -55,5 +56,5 @@ CREATE TABLE countries_relation (
 """)
 
     # convert data to insert statements
-    for country in countries:
+    for country in sorted(countries):
         f.write(f"INSERT INTO countries_relation VALUES ('{country}');\n")

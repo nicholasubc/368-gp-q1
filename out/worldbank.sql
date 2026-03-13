@@ -1,4 +1,4 @@
-DROP TABLE IF EXISTS worldbank;
+DROP TABLE worldbank;
 PURGE RECYCLEBIN;
 CREATE TABLE worldbank (
     country VARCHAR(100),
