@@ -1,8 +1,8 @@
 DROP TABLE IF EXISTS netflix_prices;
 CREATE TABLE netflix_prices (
-    date DATE,
+    date DATE PRIMARY KEY,
     country VARCHAR(100),
-    country_code CHAR(2),
+    country_code CHAR(2) PRIMARY KEY,
     basic_price FLOAT
 );
 INSERT INTO netflix_prices VALUES ('2023-01-07', 'Andorra', 'AD', 8.7);
