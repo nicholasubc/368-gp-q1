@@ -42,7 +42,7 @@ CREATE TABLE netflix_prices (
 
     # convert data to insert statements
     for date, country, code, price in rows:
-        f.write(f"INSERT INTO netflix_prices VALUES ('{date}', '{country}', '{code}', {price});\n")
+        f.write(f"INSERT INTO netflix_prices VALUES (DATE '{date}', '{country}', '{code}', {price});\n")
 
 with open(countries_sql, "w") as f:
     # discard old data and create table

@@ -27,6 +27,6 @@ CREATE TABLE netflix_traffic (
     # blank values become 0
     for month, country, value in rows:
         if (value != ""):
-            f.write(f"INSERT INTO netflix_traffic VALUES ('{month}', '{country}', {value});\n")
+            f.write(f"INSERT INTO netflix_traffic VALUES (DATE '{month}', '{country}', {value});\n")
         else:
-            f.write(f"INSERT INTO netflix_traffic VALUES ('{month}', '{country}', 0);\n")
+            f.write(f"INSERT INTO netflix_traffic VALUES (DATE '{month}', '{country}', 0);\n")
