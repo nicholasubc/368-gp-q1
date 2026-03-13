@@ -29,10 +29,11 @@ with open(sql, "w") as f:
     f.write("""DROP TABLE IF EXISTS netflix_prices;
 PURGE RECYCLEBIN;
 CREATE TABLE netflix_prices (
-    date DATE PRIMARY KEY,
-    country VARCHAR(100),
-    country_code CHAR(2) PRIMARY KEY,
-    basic_price FLOAT
+    date DATE,
+    country VARCHAR(100) NOT NULL,
+    country_code CHAR(2),
+    basic_price FLOAT NOT NULL,
+    PRIMARY KEY (date, country_code)
 );
 """)
 
