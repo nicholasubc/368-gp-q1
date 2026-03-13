@@ -24,6 +24,7 @@ for file in sorted(data.glob("*.json")):
 
 with open(sql, "w") as f:
     f.write("""DROP TABLE IF EXISTS netflix_prices;
+PURGE RECYCLEBIN;
 CREATE TABLE netflix_prices (
     date DATE PRIMARY KEY,
     country VARCHAR(100),
