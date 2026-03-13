@@ -5,7 +5,7 @@ CREATE TABLE netflix_traffic (
     country VARCHAR(100) NOT NULL,
     value INT NOT NULL,
     PRIMARY KEY (month, country),
-    FOREIGN KEY (country) REFERENCES worldbank ON DELETE CASCADE
+    FOREIGN KEY (country) REFERENCES countries_relation ON DELETE CASCADE
 );
 INSERT INTO netflix_traffic VALUES ('2016-03-01', 'Afghanistan', 3);
 INSERT INTO netflix_traffic VALUES ('2016-04-01', 'Afghanistan', 2);

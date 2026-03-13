@@ -3,16 +3,19 @@ import json
 
 data = Path("data/netflix-prices/data")
 sql = "out/netflix_prices.sql"
+countries_sql = "out/countries_relation.sql"
 
 rows = []
+countries = []
 
-# load json files into rows array
+# load json files into rows arrays
 for file in sorted(data.glob("*.json")):
     if (file.name != "latest.json"):
         date = file.stem
         with open(file) as f:
             data = json.load(f)
         for country in data:
+            countries.append(country["country"])
             country_name = country["country"]
             country_code = country["country_code"]
 
@@ -34,10 +37,23 @@ CREATE TABLE netflix_prices (
     country_code CHAR(2),
     basic_price FLOAT NOT NULL,
     PRIMARY KEY (date, country_code),
-    FOREIGN KEY (country) REFERENCES worldbank ON DELETE CASCADE
+    FOREIGN KEY (country) REFERENCES countries_relation ON DELETE CASCADE
 );
 """)
 
     # convert data to insert statements
     for date, country, code, price in rows:
         f.write(f"INSERT INTO netflix_prices VALUES ('{date}', '{country}', '{code}', {price});\n")
+
+with open(countries_sql, "w") as f:
+    # discard old data and create table
+    f.write("""DROP TABLE IF EXISTS countries_relation;
+PURGE RECYCLEBIN;
+CREATE TABLE countries_relation (
+    country VARCHAR(100) PRIMARY KEY
+);
+""")
+
+    # convert data to insert statements
+    for country in countries:
+        f.write(f"INSERT INTO countries_relation VALUES ('{country}');\n")

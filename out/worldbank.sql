@@ -5,6 +5,7 @@ CREATE TABLE worldbank (
     series_code VARCHAR(100),
     latest_value FLOAT NOT NULL,
     PRIMARY KEY (country, series_code)
+    FOREIGN KEY (country) REFERENCES countries_relation ON DELETE CASCADE
 );
 INSERT INTO worldbank VALUES ('Afghanistan', 'NY.GDP.MKTP.CD', NULL);
 INSERT INTO worldbank VALUES ('Afghanistan', 'SP.POP.TOTL', '42647492');

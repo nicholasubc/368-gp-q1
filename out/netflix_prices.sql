@@ -5,8 +5,8 @@ CREATE TABLE netflix_prices (
     country VARCHAR(100) NOT NULL,
     country_code CHAR(2),
     basic_price FLOAT NOT NULL,
-    PRIMARY KEY (date, country_code)
-    FOREIGN KEY (country) REFERENCES worldbank ON DELETE CASCADE,
+    PRIMARY KEY (date, country_code),
+    FOREIGN KEY (country) REFERENCES countries_relation ON DELETE CASCADE
 );
 INSERT INTO netflix_prices VALUES ('2023-01-07', 'Andorra', 'AD', 8.7);
 INSERT INTO netflix_prices VALUES ('2023-01-07', 'United Arab Emirates', 'AE', 7.9);
