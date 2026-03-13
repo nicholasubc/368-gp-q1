@@ -20,7 +20,6 @@ CREATE TABLE worldbank (
     country VARCHAR(100),
     series_code VARCHAR(100),
     latest_value FLOAT NOT NULL,
-    FOREIGN KEY (country) REFERENCES netflix_prices ON DELETE CASCADE,
     PRIMARY KEY (country, series_code)
 );
 """)
@@ -29,3 +28,5 @@ CREATE TABLE worldbank (
     for country, code, val in rows:
         if (val != ""):
             f.write(f"INSERT INTO worldbank VALUES ('{country}', '{code}', '{val}');\n")
+        else:
+            f.write(f"INSERT INTO worldbank VALUES ('{country}', '{code}', NULL);\n")

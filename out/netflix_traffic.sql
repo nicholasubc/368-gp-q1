@@ -1,11 +1,11 @@
 DROP TABLE IF EXISTS netflix_traffic;
-
+PURGE RECYCLEBIN;
 CREATE TABLE netflix_traffic (
     month DATE NOT NULL,
     country VARCHAR(100) NOT NULL,
     value INT NOT NULL,
     PRIMARY KEY (month, country),
-    FOREIGN KEY (country) REFERENCES netflix_prices ON DELETE CASCADE
+    FOREIGN KEY (country) REFERENCES worldbank ON DELETE CASCADE
 );
 INSERT INTO netflix_traffic VALUES ('2016-03-01', 'Afghanistan', 3);
 INSERT INTO netflix_traffic VALUES ('2016-04-01', 'Afghanistan', 2);

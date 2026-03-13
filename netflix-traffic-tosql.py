@@ -21,7 +21,7 @@ CREATE TABLE netflix_traffic (
     country VARCHAR(100) NOT NULL,
     value INT NOT NULL,
     PRIMARY KEY (month, country),
-    FOREIGN KEY (country) REFERENCES netflix_prices ON DELETE CASCADE
+    FOREIGN KEY (country) REFERENCES worldbank ON DELETE CASCADE
 );
 """)
 

@@ -1,10 +1,10 @@
 DROP TABLE IF EXISTS worldbank;
 PURGE RECYCLEBIN;
 CREATE TABLE worldbank (
-    country VARCHAR(100) PRIMARY KEY,
-    series_code VARCHAR(100) PRIMARY KEY,
+    country VARCHAR(100),
+    series_code VARCHAR(100),
     latest_value FLOAT NOT NULL,
-    FOREIGN KEY (country) REFERENCES netflix_prices ON DELETE CASCADE
+    PRIMARY KEY (country, series_code)
 );
 INSERT INTO worldbank VALUES ('Afghanistan', 'NY.GDP.MKTP.CD', NULL);
 INSERT INTO worldbank VALUES ('Afghanistan', 'SP.POP.TOTL', '42647492');
