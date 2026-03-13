@@ -31,11 +31,11 @@ with open(sql, "w") as f:
     # discard old data and create table
     f.write("""SET DEFINE OFF;
 CREATE TABLE netflix_prices (
-    date DATE,
+    price_date DATE,
     country VARCHAR(100) NOT NULL,
     country_code CHAR(2),
     basic_price FLOAT NOT NULL,
-    PRIMARY KEY (date, country_code),
+    PRIMARY KEY (price_date, country_code),
     FOREIGN KEY (country) REFERENCES countries_relation ON DELETE CASCADE
 );
 """)

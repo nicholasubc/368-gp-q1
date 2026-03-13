@@ -1,4 +1,4 @@
-date,country,country_code,basic_price
+price_date,country,country_code,basic_price
 2023-01-07,Andorra,AD,8.7
 2023-01-07,United Arab Emirates,AE,7.9
 2023-01-07,Afghanistan,AF,7.99

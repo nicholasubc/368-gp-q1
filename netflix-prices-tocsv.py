@@ -29,7 +29,7 @@ for file in sorted(data.glob("*.json")):
 
 # write out csvs
 with open(csv, "w") as f:
-    f.write("date,country,country_code,basic_price\n")
+    f.write("price_date,country,country_code,basic_price\n")
 
     for date, country, code, price in rows:
         f.write(f"{date},{country},{code},{price}\n")
@@ -37,5 +37,5 @@ with open(csv, "w") as f:
 with open(countries_csv, "w") as f:
     f.write("country\n")
 
-    for country in countries:
+    for country in sorted(countries):
         f.write(f"{country}\n")
