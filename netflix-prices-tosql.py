@@ -29,8 +29,7 @@ for file in sorted(data.glob("*.json")):
 
 with open(sql, "w") as f:
     # discard old data and create table
-    f.write("""DROP TABLE netflix_prices;
-PURGE RECYCLEBIN;
+    f.write("""SET DEFINE OFF;
 CREATE TABLE netflix_prices (
     date DATE,
     country VARCHAR(100) NOT NULL,
@@ -48,8 +47,6 @@ CREATE TABLE netflix_prices (
 with open(countries_sql, "w") as f:
     # discard old data and create table
     f.write("""SET DEFINE OFF;
-DROP TABLE countries_relation;
-PURGE RECYCLEBIN;
 CREATE TABLE countries_relation (
     country VARCHAR(100) PRIMARY KEY
 );

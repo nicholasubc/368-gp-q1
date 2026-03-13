@@ -1,5 +1,4 @@
-DROP TABLE netflix_traffic;
-PURGE RECYCLEBIN;
+SET DEFINE OFF;
 CREATE TABLE netflix_traffic (
     month DATE NOT NULL,
     country VARCHAR(100) NOT NULL,

@@ -1,5 +1,4 @@
-DROP TABLE worldbank;
-PURGE RECYCLEBIN;
+SET DEFINE OFF;
 CREATE TABLE worldbank (
     country VARCHAR(100),
     series_code VARCHAR(100),

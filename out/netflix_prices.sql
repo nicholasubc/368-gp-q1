@@ -1,5 +1,4 @@
-DROP TABLE netflix_prices;
-PURGE RECYCLEBIN;
+SET DEFINE OFF;
 CREATE TABLE netflix_prices (
     date DATE,
     country VARCHAR(100) NOT NULL,

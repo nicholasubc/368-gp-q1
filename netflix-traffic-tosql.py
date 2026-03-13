@@ -14,8 +14,7 @@ with open(data, mode="r", encoding="utf-8") as f:
 
 with open(sql, "w", encoding="utf-8") as f:
     # discard old data and create table
-    f.write("""DROP TABLE netflix_traffic;
-PURGE RECYCLEBIN;
+    f.write("""SET DEFINE OFF;
 CREATE TABLE netflix_traffic (
     month DATE NOT NULL,
     country VARCHAR(100) NOT NULL,

@@ -1,6 +1,4 @@
 SET DEFINE OFF;
-DROP TABLE countries_relation;
-PURGE RECYCLEBIN;
 CREATE TABLE countries_relation (
     country VARCHAR(100) PRIMARY KEY
 );
