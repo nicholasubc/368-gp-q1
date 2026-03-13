@@ -2,7 +2,7 @@ from pathlib import Path
 import json
 
 data = Path("data/netflix-prices/data")
-sql = "out/netflix_prices.sql"
+csv = "out/netflix_prices.csv"
 
 rows = []
 
@@ -22,15 +22,8 @@ for file in sorted(data.glob("*.json")):
         if basic_price is not None:
             rows.append((date, country_name, country_code, basic_price))
 
-with open(sql, "w") as f:
-    f.write("""DROP TABLE IF EXISTS netflix_prices;
-CREATE TABLE netflix_prices (
-    date DATE PRIMARY KEY,
-    country VARCHAR(100),
-    country_code CHAR(2) PRIMARY KEY,
-    basic_price FLOAT
-);
-""")
+with open(csv, "w") as f:
+    f.write("date,country_code,basic_price\n")
 
     for date, country, code, price in rows:
-        f.write(f"INSERT INTO netflix_prices VALUES ('{date}', '{country}', '{code}', {price});\n")
+        f.write(f"{date},{country},{code},{price}\n")
