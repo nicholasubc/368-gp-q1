@@ -1,4 +1,4 @@
-from pathlib import Path
+from pathlib import Path  # for getting array of json files
 import json
 
 data = Path("data/netflix-prices/data")
@@ -6,6 +6,7 @@ sql = "out/netflix_prices.sql"
 
 rows = []
 
+# load json files into rows array
 for file in sorted(data.glob("*.json")):
     date = file.stem
     with open(file) as f:
@@ -23,6 +24,7 @@ for file in sorted(data.glob("*.json")):
             rows.append((date, country_name, country_code, basic_price))
 
 with open(sql, "w") as f:
+    # discard old data and create table
     f.write("""DROP TABLE IF EXISTS netflix_prices;
 PURGE RECYCLEBIN;
 CREATE TABLE netflix_prices (
@@ -33,5 +35,6 @@ CREATE TABLE netflix_prices (
 );
 """)
 
+    # convert data to insert statements
     for date, country, code, price in rows:
         f.write(f"INSERT INTO netflix_prices VALUES ('{date}', '{country}', '{code}', {price});\n")

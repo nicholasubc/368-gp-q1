@@ -14,7 +14,10 @@ with open(data, mode="r", encoding="utf-8") as f:
             val = ""
         rows.append([name, code, val])
 
+# the last 5 rows are not relavent data
 rows = rows[:-5]
+
+# write out csv
 with open(csvout, mode="w", encoding="utf-8", newline="") as f:
     writer = csv.writer(f)
     writer.writerow(["Country Name", "Series Code", "LatestValue"])

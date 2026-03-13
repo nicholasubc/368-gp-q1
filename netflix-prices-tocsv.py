@@ -1,4 +1,4 @@
-from pathlib import Path
+from pathlib import Path  # for getting array of json files
 import json
 
 data = Path("data/netflix-prices/data")
@@ -6,6 +6,7 @@ csv = "out/netflix_prices.csv"
 
 rows = []
 
+# load json files into rows array
 for file in sorted(data.glob("*.json")):
     date = file.stem
     with open(file) as f:
@@ -22,6 +23,7 @@ for file in sorted(data.glob("*.json")):
         if basic_price is not None:
             rows.append((date, country_name, country_code, basic_price))
 
+# write out csv
 with open(csv, "w") as f:
     f.write("date,country_code,basic_price\n")
 
