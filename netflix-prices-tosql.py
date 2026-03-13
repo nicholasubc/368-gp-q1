@@ -8,20 +8,21 @@ rows = []
 
 # load json files into rows array
 for file in sorted(data.glob("*.json")):
-    date = file.stem
-    with open(file) as f:
-        data = json.load(f)
-    for country in data:
-        country_name = country["country"]
-        country_code = country["country_code"]
+    if (file.name != "latest.json"):
+        date = file.stem
+        with open(file) as f:
+            data = json.load(f)
+        for country in data:
+            country_name = country["country"]
+            country_code = country["country_code"]
 
-        basic_price = None
-        for plan in country["plans"]:
-            if plan["name"] == "basic":
-                basic_price = plan["price_usd"]
-                break
-        if basic_price is not None:
-            rows.append((date, country_name, country_code, basic_price))
+            basic_price = None
+            for plan in country["plans"]:
+                if plan["name"] == "basic":
+                    basic_price = plan["price_usd"]
+                    break
+            if basic_price is not None:
+                rows.append((date, country_name, country_code, basic_price))
 
 with open(sql, "w") as f:
     # discard old data and create table
