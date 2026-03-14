@@ -22,7 +22,7 @@ for file in sorted(data.glob("*.json")):
             basic_price = None
             for plan in country["plans"]:
                 if plan["name"] == "basic":
-                    basic_price = plan["price_usd"]
+                    basic_price = plan["price"]
                     break
             if basic_price is not None:
                 rows.append((date, country_name, country_code, basic_price))
