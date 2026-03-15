@@ -30,3 +30,5 @@ CREATE TABLE netflix_traffic (
             f.write(f"INSERT INTO netflix_traffic VALUES (DATE '{month}', '{country}', {value});\n")
         else:
             f.write(f"INSERT INTO netflix_traffic VALUES (DATE '{month}', '{country}', 0);\n")
+
+    f.write("\nCOMMIT;")

@@ -248,3 +248,5 @@ INSERT INTO countries_relation VALUES ('Yemen');
 INSERT INTO countries_relation VALUES ('Zambia');
 INSERT INTO countries_relation VALUES ('Zimbabwe');
 INSERT INTO countries_relation VALUES ('Åland Islands');
+
+COMMIT;

@@ -5565,3 +5565,5 @@ INSERT INTO netflix_prices VALUES (DATE '2026-03-06', 'Mayotte', 'YT', 11.99);
 INSERT INTO netflix_prices VALUES (DATE '2026-03-06', 'South Africa', 'ZA', 99.0);
 INSERT INTO netflix_prices VALUES (DATE '2026-03-06', 'Zambia', 'ZM', 3.99);
 INSERT INTO netflix_prices VALUES (DATE '2026-03-06', 'Zimbabwe', 'ZW', 3.99);
+
+COMMIT;

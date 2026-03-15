@@ -25295,3 +25295,5 @@ INSERT INTO netflix_traffic VALUES (DATE '2025-12-01', 'Åland Islands', 10);
 INSERT INTO netflix_traffic VALUES (DATE '2026-01-01', 'Åland Islands', 17);
 INSERT INTO netflix_traffic VALUES (DATE '2026-02-01', 'Åland Islands', 1);
 INSERT INTO netflix_traffic VALUES (DATE '2026-03-01', 'Åland Islands', 10);
+
+COMMIT;

@@ -538,3 +538,5 @@ INSERT INTO worldbank VALUES ('Upper middle income', 'NY.GDP.MKTP.CD', '30986054
 INSERT INTO worldbank VALUES ('Upper middle income', 'SP.POP.TOTL', '2817912698');
 INSERT INTO worldbank VALUES ('World', 'NY.GDP.MKTP.CD', '110982661180013');
 INSERT INTO worldbank VALUES ('World', 'SP.POP.TOTL', '8141808945');
+
+COMMIT;

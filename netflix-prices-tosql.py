@@ -44,6 +44,8 @@ CREATE TABLE netflix_prices (
     for date, country, code, price in rows:
         f.write(f"INSERT INTO netflix_prices VALUES (DATE '{date}', '{country}', '{code}', {price});\n")
 
+    f.write("\nCOMMIT;")
+
 with open(countries_sql, "w") as f:
     # discard old data and create table
     f.write("""SET DEFINE OFF;
@@ -55,3 +57,5 @@ CREATE TABLE countries_relation (
     # convert data to insert statements
     for country in sorted(countries):
         f.write(f"INSERT INTO countries_relation VALUES ('{country}');\n")
+
+    f.write("\nCOMMIT;")

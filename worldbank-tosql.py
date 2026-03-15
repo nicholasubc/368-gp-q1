@@ -30,3 +30,4 @@ CREATE TABLE worldbank (
             f.write(f"INSERT INTO worldbank VALUES ('{country}', '{code}', '{val}');\n")
         else:
             f.write(f"INSERT INTO worldbank VALUES ('{country}', '{code}', NULL);\n")
+    f.write("\nCOMMIT;")
